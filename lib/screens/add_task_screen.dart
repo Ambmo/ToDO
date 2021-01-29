@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:todoey/screens/tasks_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:todoey/models/task_data.dart';
 
-//<<<<<<<<<<<<<<
-String newTask;
-
-// void addTask(task){
-// newTask = task;
-//   TasksList();
-// }
+String newTaskTitle;
 
 class AddTaskScreen extends StatelessWidget {
-  final Function callBack;
-  AddTaskScreen(this.callBack);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +25,7 @@ class AddTaskScreen extends StatelessWidget {
                   autofocus: true,
                   textAlign: TextAlign.center,
                   onChanged: (passedTask) {
-                    newTask = passedTask;
+                    newTaskTitle = passedTask;
                   }),
               FlatButton(
                 child: Text(
@@ -44,7 +36,9 @@ class AddTaskScreen extends StatelessWidget {
                 ),
                 color: Colors.lightBlueAccent,
                 onPressed: () {
-                  callBack(newTask);
+                  Provider.of<TaskData>(context, listen: false)
+                      .addTask(newTaskTitle);
+                  Navigator.pop(context);
                 },
               ),
             ],
