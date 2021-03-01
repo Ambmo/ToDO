@@ -26,6 +26,5 @@ The objective of this tutorial is to understand how to manage state in Flutter. 
 - Learn about design patterns and why they are useful.
 - Understand how the Provider package works and use it to manage app state.
 
->This is a companion project to The App Brewery's Complete Flutter Development Bootcamp, check out the full course at [www.appbrewery.co](https://www.appbrewery.co/)
 
 
